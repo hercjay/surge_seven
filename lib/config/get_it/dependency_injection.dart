@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:surge_seven/core/data/truck/truck_provider.dart';
+import 'package:surge_seven/core/data/truck/truck_repository.dart';
 import 'package:surge_seven/features/user/domain/use_cases/get_local_user_use_case.dart';
 import 'package:surge_seven/features/user/domain/use_cases/signup_user_use_case.dart';
 import 'package:surge_seven/features/user/domain/user_repository.dart';
@@ -29,6 +31,8 @@ Future<void> setupDependencyInjection() async {
     ),
   );
 
+  getIt.registerLazySingleton<TruckRepository>(() => TruckRepository());
+
   // Registering Use Cases
   getIt.registerLazySingleton<GetLocalUserUseCase>(
       () => GetLocalUserUseCase(getIt<UserRepository>()));
@@ -41,4 +45,5 @@ Future<void> setupDependencyInjection() async {
 
   // Registering Providers
   getIt.registerLazySingleton<UserProvider>(() => UserProvider());
+  getIt.registerLazySingleton<TruckProvider>(() => TruckProvider());
 }

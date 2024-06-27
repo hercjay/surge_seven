@@ -33,6 +33,12 @@ TextStyle titleTextStyle = const TextStyle(
   fontWeight: FontWeight.w700,
   //color: primaryColor,
 );
+TextStyle mediumTextStyle = const TextStyle(
+  fontSize: 15,
+  fontWeight: FontWeight.w300,
+  //color: primaryColor,
+);
+
 
 TextStyle smallTextStyle = const TextStyle(
   fontSize: 13,

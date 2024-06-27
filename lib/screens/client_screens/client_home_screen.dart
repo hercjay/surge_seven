@@ -5,7 +5,7 @@ import 'package:surge_seven/config/constants.dart';
 import 'package:surge_seven/config/get_it/dependency_injection.dart';
 import 'package:surge_seven/core/data/truck/truck_model.dart';
 import 'package:surge_seven/features/user/presentation/user_provider.dart';
-import 'package:surge_seven/screens/TruckDetails.dart';
+import 'package:surge_seven/screens/truck_details_screen.dart';
 import 'package:surge_seven/widgets/card_item.dart';
 import 'package:surge_seven/widgets/components/my_button.dart';
 import 'package:surge_seven/widgets/components/tag_item.dart';
@@ -83,20 +83,18 @@ class AvailableTrucks extends StatelessWidget {
           // color: Colors.lightBlue,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: trucks.map((e) {
+            children: trucksDemoList.map((e) {
               return GestureDetector(
                 onTap: () {
-                    hercNavigationPush(
-                        context, TruckDetailsScreen(truck: e));
-                  },
+                  hercNavigationPush(context, TruckDetailsScreen(truck: e));
+                },
                 child: CardItem(
                   title: e.title,
                   photo: e.photos[0],
                   extra: MyButton(
                     label: 'Book This Truck',
                     onPressed: () {
-                      hercNavigationPush(
-                          context, TruckDetailsScreen(truck: e));
+                      hercNavigationPush(context, TruckDetailsScreen(truck: e));
                     },
                   ),
                   tagTL: TagItem(

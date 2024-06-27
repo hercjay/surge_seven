@@ -1,4 +1,4 @@
-class TruckModel {
+class TruckEntity {
   final String id;
   String ownerId;
   String title;
@@ -6,7 +6,7 @@ class TruckModel {
   String targetWeight;
   List<String> photos;
 
-  TruckModel({
+  TruckEntity({
     this.id = '',
     this.ownerId = '',
     this.title = '',
@@ -16,8 +16,8 @@ class TruckModel {
   });
 }
 
-List<TruckModel> trucks = [
-  TruckModel(
+List<TruckEntity> trucksDemoList = [
+  TruckEntity(
     id: '1',
     ownerId: '1',
     title: 'Truck 1',
@@ -28,7 +28,7 @@ List<TruckModel> trucks = [
       'https://thumbs.dreamstime.com/b/penske-moving-truck-parking-lot-blue-sky-outdoor-s-parking-lot-lot-hutchinson-kansas-usa-penske-moving-323716156.jpg?w=768',
     ],
   ),
-  TruckModel(
+  TruckEntity(
     id: '2',
     ownerId: '1',
     targetWeight: '50-2500kg',
@@ -41,7 +41,7 @@ List<TruckModel> trucks = [
       'https://thumbs.dreamstime.com/b/fast-moving-truck-993923.jpg?w=768',
     ],
   ),
-  TruckModel(
+  TruckEntity(
     id: '3',
     ownerId: '2',
     targetWeight: "100-5000kg",
@@ -53,7 +53,7 @@ List<TruckModel> trucks = [
       '',
     ],
   ),
-  TruckModel(
+  TruckEntity(
     id: '4',
     ownerId: '3',
     targetWeight: "240-6800kg",
@@ -65,7 +65,7 @@ List<TruckModel> trucks = [
       'https://thumbs.dreamstime.com/b/fast-moving-truck-993923.jpg?w=768',
     ],
   ),
-  TruckModel(
+  TruckEntity(
     id: '5',
     ownerId: '4',
     title: 'This is a Truck Title of the Fifth Truck',
