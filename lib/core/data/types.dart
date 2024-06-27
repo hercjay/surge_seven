@@ -1,4 +1,4 @@
-class UserTypes {
+class UserType {
   static const String Client = 'Client';
   static const String TruckOwner = 'TruckOwner';
   static const String Admin = 'Admin';
