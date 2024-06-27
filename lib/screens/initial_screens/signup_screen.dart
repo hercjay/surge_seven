@@ -42,7 +42,7 @@ class _SignupScreenState extends State<SignupScreen> {
               children: [
                 Transform.translate(
                   offset: const Offset(0, 30),
-                  child: Image.asset('assets/images/png/surge-seven1.png',
+                  child: Image.asset('assets/images/png/logo.png',
                       height: screenUtil.height * 0.18),
                 ),
                 GreenCard(

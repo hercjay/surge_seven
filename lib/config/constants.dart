@@ -9,10 +9,13 @@ import 'package:surge_seven/config/app_colors.dart';
 double maxImgWidth = 50000;
 
 double screenPaddingW = 20;
+double screenPaddingH = 15;
 double btnPaddingWidth = 25;
 
 EdgeInsetsGeometry screenPadding =
     EdgeInsets.symmetric(horizontal: screenPaddingW);
+EdgeInsetsGeometry screenPadding2 = EdgeInsets.only(
+    left: screenPaddingW, right: screenPaddingW, top: screenPaddingH);
 
 //fonts
 double largeFont = 50;
@@ -38,10 +41,15 @@ TextStyle smallTextStyle = const TextStyle(
 );
 
 TextStyle cardTitleStyle = const TextStyle(
-  fontSize: 16,
+  fontSize: 25,
   fontWeight: FontWeight.w700,
   overflow: TextOverflow.ellipsis,
   //color: primaryColor,
+);
+
+TextStyle itemNameStyle = const TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w700,
 );
 
 TextStyle formLabelStyle = const TextStyle(

@@ -1,3 +1,4 @@
+import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -18,6 +19,7 @@ void main() async {
     [DeviceOrientation.portraitUp],
   ); // To turn off landscape mode
 
+  FastCachedImageConfig.init();
   await setupDependencyInjection();
 
   runApp(

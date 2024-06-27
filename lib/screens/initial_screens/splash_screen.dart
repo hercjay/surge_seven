@@ -173,8 +173,7 @@ class SplashScreenState extends State<SplashScreen> {
             children: [
               Transform.translate(
                 offset: const Offset(0, 25),
-                child: Image.asset('assets/images/png/surge-seven1.png',
-                    height: 120),
+                child: Image.asset('assets/images/png/logo.png', height: 120),
               ),
               const Text(appName,
                   style: TextStyle(

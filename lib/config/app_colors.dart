@@ -13,7 +13,7 @@ class AppColors {
   static const primaryColorLighter2 =Color.fromARGB(255, 164, 255, 124);
   static const primaryColorDark = Color(0xFF1E5C00);
   static const scaffoldBackgrounColorDark = Color(0xFF001824);
-  static const scaffoldBackgrounColorLight = Color.fromARGB(255, 227, 230, 231);
+  static const scaffoldBackgrounColorLight = Color.fromARGB(255, 230, 237, 240);
   static const textColorDark = Color.fromARGB(255, 6, 11, 14);
   static const textColorLight = Color.fromARGB(255, 247, 243, 243);
   static const textColorDark2 = Color.fromARGB(255, 59, 59, 59);
