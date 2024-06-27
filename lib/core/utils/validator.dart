@@ -13,4 +13,5 @@ class Validator {
   static bool isPassword(String password) {
     return password.length >= 5;
   }
+  
 }
