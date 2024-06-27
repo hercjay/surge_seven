@@ -39,9 +39,8 @@ class SplashScreenState extends State<SplashScreen> {
     final getlocalUserUseCase = getIt<GetLocalUserUseCase>();
     final userProvider = getIt<UserProvider>();
     final currentUserEntityEither = await getlocalUserUseCase.call();
-    
-    currentUserEntityEither.fold(
-      (error) {
+
+    currentUserEntityEither.fold((error) {
       //showError(error.message, otherInternetErrorAlertDuration);
       Future.delayed(const Duration(seconds: 3), () {
         hercNavigationPushAndReplace(context, const SignupScreen());
@@ -50,10 +49,10 @@ class SplashScreenState extends State<SplashScreen> {
       dPrint("User logged from local data success SPLASH SCREEN as $user");
       userProvider.setCurrentUser(user);
       switch (user.userType) {
-        case UserTypes.Admin:
+        case UserType.Admin:
           hercNavigationPushAndReplace(context, const AdminHomeScreen());
           break;
-        case UserTypes.TruckOwner:
+        case UserType.TruckOwner:
           hercNavigationPushAndReplace(context, const TruckOwnerHomeScreen());
           break;
         default:
@@ -124,8 +123,6 @@ class SplashScreenState extends State<SplashScreen> {
     //   // hercNavigationPushAndReplace(
     //   //     context, HomeScreen(user: currentUserEntity));
     // });
-
-
   }
 
   void _retry() {

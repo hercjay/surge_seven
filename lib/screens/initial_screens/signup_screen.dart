@@ -7,8 +7,11 @@ import 'package:surge_seven/config/get_it/dependency_injection.dart';
 import 'package:surge_seven/core/data/types.dart';
 import 'package:surge_seven/core/utils/screen_util.dart';
 import 'package:surge_seven/core/utils/validator.dart';
+import 'package:surge_seven/features/user/data/user_util.dart';
 import 'package:surge_seven/features/user/domain/use_cases/signup_user_use_case.dart';
 import 'package:surge_seven/features/user/domain/user_entity.dart';
+import 'package:surge_seven/features/user/presentation/user_provider.dart';
+import 'package:surge_seven/screens/client_screens/client_home_screen.dart';
 import 'package:surge_seven/widgets/components/green_card.dart';
 import 'package:surge_seven/widgets/components/my_button.dart';
 import 'package:surge_seven/widgets/my_textfield.dart';
@@ -213,7 +216,7 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   _signUp() async {
-    showInfo('Sign Up...');
+    final userProvider = getIt<UserProvider>();
 
     UserEntity userEntity = UserEntity(
       email: emailController.text,
@@ -224,11 +227,14 @@ class _SignupScreenState extends State<SignupScreen> {
     );
 
     final signUpUserUseCase = getIt<SignUpUserUseCase>();
+    showProgress('Signing up...');
     final user = await signUpUserUseCase.call(userEntity);
     user.fold((error) {
       showError('User Signup failed: ${error.message}');
     }, (user) {
-      showSuccess('Signup successful for ${user.toString()}');
+      userProvider.setCurrentUser(user);
+      showToast('Signup successful...');
+      navigateToHome(context, user);
     });
   }
 }

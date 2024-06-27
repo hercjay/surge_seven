@@ -1,5 +1,3 @@
-
-
 import 'package:surge_seven/config/constants.dart';
 import 'package:surge_seven/core/data/types.dart';
 import 'package:surge_seven/features/user/domain/user_entity.dart';
@@ -34,7 +32,7 @@ class UserModel extends UserEntity {
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       userId: json['user_id'],
-      userType: json['user_type'] ?? UserTypes.Client,
+      userType: json['user_type'] ?? UserType.Client,
       subscriptionType: json['subscription_type'] ?? SubscriptionTypes.Free,
       photo: (json['photo'] != null && json['photo'] != "")
           ? json['photo'].toString()
@@ -52,7 +50,7 @@ class UserModel extends UserEntity {
   factory UserModel.fromLocalJson(Map<String, dynamic> json) {
     return UserModel(
       userId: json['user_id'],
-      userType: json['user_type'] ?? UserTypes.Client,
+      userType: json['user_type'] ?? UserType.Client,
       subscriptionType: json['subscription_type'] ?? SubscriptionTypes.Free,
       photo: (json['photo'] != null && json['photo'] != "")
           ? json['photo'].toString()
