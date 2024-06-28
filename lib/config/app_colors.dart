@@ -29,6 +29,8 @@ class AppColors {
   //Widget Colors Usage
   static const Color bottonInactiveCollor = Color(0xFFE3E5E7);
   static const Color textWidgetFilledColor = Color(0xFFE9EAEC);
+  static const Color textWidgetFilledColor2 = Color.fromARGB(255, 130, 134, 139);
+  static const Color textWidgetFilledColorDark = Color(0xFF0B2928);
   static const Color profileLemonColor = Color(0xFFD6F3D4);
   static const Color darkProfileLemonColor = Color(0xFF61CA59);
   static const Color profileOffPrimaryColor = Color(0xFFD4EAF3);

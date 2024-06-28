@@ -2,6 +2,7 @@ import 'package:fast_cached_network_image/fast_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:surge_seven/config/app_colors.dart';
 import 'package:surge_seven/config/constants.dart';
+import 'package:surge_seven/widgets/my_circle_image.dart';
 
 class CardItem extends StatelessWidget {
   final String title;
@@ -43,28 +44,7 @@ class CardItem extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    height: 150.0,
-                    width: 150.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: const Border(
-                        bottom: BorderSide(
-                          color: AppColors.grey1,
-                          width: 5.0,
-                        ),
-                        top: BorderSide(
-                          color: AppColors.grey1,
-                          width: 5.0,
-                        ),
-                      ),
-                      image: DecorationImage(
-                        image: FastCachedImageProvider(photo),
-                        //image: AssetImage(photo),
-                        fit: BoxFit.cover,
-                      ),
-                    ),),
+                  MyCircleImage(photo: photo),
                   const SizedBox(height: 10),
                   Text(
                     title,
@@ -92,3 +72,5 @@ class CardItem extends StatelessWidget {
     );
   }
 }
+
+

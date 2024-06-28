@@ -58,9 +58,19 @@ TextStyle itemNameStyle = const TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+TextStyle itemNameStyle2 = const TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w700,
+);
+
 TextStyle formLabelStyle = const TextStyle(
   fontSize: 16,
   fontWeight: FontWeight.w300,
+);
+
+TextStyle formLabelStyleBold = const TextStyle(
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
 );
 
 Color setTitleColor(context) {

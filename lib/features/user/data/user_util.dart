@@ -10,11 +10,12 @@ UserEntity generateUserEntity() {
   UserEntity userEntity = UserEntity(
     userId: "1",
     userType: UserType.Client,
-    subscriptionType: SubscriptionTypes.Free,
+    subscriptionType: SubscriptionType.Free,
     photo: "",
     email: "email@gmail.com",
     password: "passwordHash",
     status: UserStatus.Active,
+    username: "hercjay",
     firstname: "Hercjay",
     lastname: "Studios",
     dateRegistered: DateTime.now().toUtc(),

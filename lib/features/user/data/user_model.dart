@@ -33,7 +33,7 @@ class UserModel extends UserEntity {
     return UserModel(
       userId: json['user_id'],
       userType: json['user_type'] ?? UserType.Client,
-      subscriptionType: json['subscription_type'] ?? SubscriptionTypes.Free,
+      subscriptionType: json['subscription_type'] ?? SubscriptionType.Free,
       photo: (json['photo'] != null && json['photo'] != "")
           ? json['photo'].toString()
           : "",
@@ -51,7 +51,7 @@ class UserModel extends UserEntity {
     return UserModel(
       userId: json['user_id'],
       userType: json['user_type'] ?? UserType.Client,
-      subscriptionType: json['subscription_type'] ?? SubscriptionTypes.Free,
+      subscriptionType: json['subscription_type'] ?? SubscriptionType.Free,
       photo: (json['photo'] != null && json['photo'] != "")
           ? json['photo'].toString()
           : "",

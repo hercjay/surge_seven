@@ -25,6 +25,7 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   final emailController = TextEditingController();
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   String userType = 'Client';
@@ -66,6 +67,11 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ),
                         const SizedBox(height: 10),
+                        MyTextField(
+                          controller: usernameController,
+                          hintText: 'KingQueen44',
+                          label: 'Username',
+                        ),
                         MyTextField(
                           controller: emailController,
                           hintText: 'me@example.com',
@@ -206,6 +212,12 @@ class _SignupScreenState extends State<SignupScreen> {
     } else if (passwordController.text != confirmPasswordController.text) {
       showToast('Passwords do not match');
       return;
+    } else if (usernameController.text.isEmpty) {
+      showToast('Username is required');
+      return;
+    } else if (usernameController.text.length < 4) {
+      showToast('Username is too short');
+      return;
     } else {
       if (Validator.isEmail(emailController.text)) {
         _signUp();
@@ -221,6 +233,7 @@ class _SignupScreenState extends State<SignupScreen> {
     UserEntity userEntity = UserEntity(
       email: emailController.text,
       password: passwordController.text,
+      username: usernameController.text,
       userType: userType,
       dateRegistered: DateTime.now().toUtc(),
       updatedAt: DateTime.now().toUtc(),

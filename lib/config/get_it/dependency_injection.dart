@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
-import 'package:surge_seven/core/data/truck/truck_provider.dart';
-import 'package:surge_seven/core/data/truck/truck_repository.dart';
+import 'package:surge_seven/features/truck/presentation/truck_provider.dart';
+import 'package:surge_seven/features/truck/truck_repository.dart';
 import 'package:surge_seven/features/user/domain/use_cases/get_local_user_use_case.dart';
 import 'package:surge_seven/features/user/domain/use_cases/signup_user_use_case.dart';
 import 'package:surge_seven/features/user/domain/user_repository.dart';

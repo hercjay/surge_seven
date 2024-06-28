@@ -8,6 +8,7 @@ class UserEntity {
   String email;
   String password;
   String status;
+  String username;
   String firstname;
   String lastname;
   DateTime dateRegistered;
@@ -16,7 +17,8 @@ class UserEntity {
   UserEntity({
     this.userId = '',
     required this.userType,
-    this.subscriptionType = SubscriptionTypes.Free,
+    this.subscriptionType = SubscriptionType.Free,
+    this.username = 'hercjay',
     this.photo = '',
     required this.email,
     required this.password,
@@ -29,7 +31,7 @@ class UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity{userId: $userId, userType: $userType, subscriptionType: $subscriptionType, photo: $photo, email: $email, password: $password, status: $status, firstname: $firstname, lastname: $lastname, dateRegistered: $dateRegistered, updatedAt: $updatedAt}';
+    return 'UserEntity{userId: $userId, userName: $username, userType: $userType, subscriptionType: $subscriptionType, photo: $photo, email: $email, password: $password, status: $status, firstname: $firstname, lastname: $lastname, dateRegistered: $dateRegistered, updatedAt: $updatedAt}';
   }
 
   factory UserEntity.copy(UserEntity userEntity) {

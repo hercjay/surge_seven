@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:surge_seven/config/app_colors.dart';
 import 'package:surge_seven/config/constants.dart';
 
 class MyDropDown extends StatelessWidget {
@@ -6,7 +7,8 @@ class MyDropDown extends StatelessWidget {
   final dynamic selectedItem;
   final String hintText;
   final String? label;
-  final List<Map<String, dynamic>> items;
+  final bool isListOfStrings;
+  final dynamic items;
   final Function(dynamic val) onChanged;
 
   const MyDropDown({
@@ -17,6 +19,7 @@ class MyDropDown extends StatelessWidget {
     required this.hintText,
     required this.items,
     required this.onChanged,
+    this.isListOfStrings = false,
   });
 
   @override
@@ -32,7 +35,9 @@ class MyDropDown extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         label!,
-                        style: formLabelStyle,
+                        style: formLabelStyleBold.copyWith(
+                          color: AppColors.textColorDark,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 6),
@@ -40,15 +45,22 @@ class MyDropDown extends StatelessWidget {
                 )
               : const SizedBox(),
           Container(
-            padding: EdgeInsets.symmetric(vertical: 1, horizontal: screenPaddingW),
+            padding:
+                EdgeInsets.symmetric(vertical: 1, horizontal: screenPaddingW),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
+              border: Border.all(
+                color: AppColors.textColorDark,
+                width: 1,
+              ),
               //color: setTextFieldFilledColor(context),
             ),
             child: DropdownButton(
               key: dropdownKey,
               isExpanded: true,
-              value: (selectedItem != 0 && selectedItem != "0") ? selectedItem : null,
+              value: (selectedItem != 0 && selectedItem != "0")
+                  ? selectedItem
+                  : null,
               icon: const Icon(Icons.arrow_downward),
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.normal,
@@ -60,18 +72,31 @@ class MyDropDown extends StatelessWidget {
               iconSize: 24,
               //dropdownColor: setTextFieldFilledColor(context),
               hint: Text(hintText),
-              items: items
-                  .map((item) => DropdownMenuItem<dynamic>(
-                        value: item['id'],
+              items: isListOfStrings
+                  ? items.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
                         child: Text(
-                          item['name'],
+                          value,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge
                               ?.copyWith(fontWeight: FontWeight.normal),
                         ),
-                      ))
-                  .toList(),
+                      );
+                    }).toList()
+                  : items
+                      .map((item) => DropdownMenuItem<dynamic>(
+                            value: item['id'],
+                            child: Text(
+                              item['name'] ?? item['title'],
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge
+                                  ?.copyWith(fontWeight: FontWeight.normal),
+                            ),
+                          ))
+                      .toList(),
               onChanged: (value) {
                 onChanged(value!);
               },
