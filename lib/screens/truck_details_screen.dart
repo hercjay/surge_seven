@@ -35,16 +35,18 @@ class _TruckDetailsScreenState extends State<TruckDetailsScreen> {
     final screenUtil = ScreenUtil.instance;
     return StandardScreen(
       title: const Text('Truck Details'),
+      topWidget: ValueListenableBuilder<int>(
+            valueListenable: activeImgIndex,
+            builder: (context, value, child) {
+              return SizedBox(
+                child: MyFutureImage(
+                    url: widget.truck.photos[activeImgIndex.value]),
+              );
+            },
+          ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ValueListenableBuilder<int>(
-            valueListenable: activeImgIndex,
-            builder: (context, value, child) {
-              return MyFutureImage(
-                  url: widget.truck.photos[activeImgIndex.value]);
-            },
-          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -61,7 +63,7 @@ class _TruckDetailsScreenState extends State<TruckDetailsScreen> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 2, vertical: 10),
                       width: screenUtil.width * 0.33 - (2 * screenPaddingW),
-                      height: 120,
+                      height: 100,
                       child: ClipRect(
                         clipBehavior: Clip.none,
                         child: FastCachedImage(

@@ -4,9 +4,10 @@ import 'package:surge_seven/config/constants.dart';
 import 'package:surge_seven/core/utils/screen_util.dart';
 
 class StandardScreen extends StatefulWidget {
-  const StandardScreen({super.key, required this.child, required this.title});
+  const StandardScreen({super.key, required this.child, required this.title, this.topWidget});
   final Widget child;
   final Widget title;
+  final Widget? topWidget;
   @override
   State<StandardScreen> createState() => _StandardScreenState();
 }
@@ -25,9 +26,14 @@ class _StandardScreenState extends State<StandardScreen> {
           automaticallyImplyLeading: true,
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: screenPadding2,
-            child: widget.child,
+          child: Column(
+            children: [
+              widget.topWidget ?? const SizedBox(),
+              Padding(
+                padding: screenPadding2,
+                child: widget.child,
+              ),
+            ],
           ),
         ),
       ),

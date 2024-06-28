@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:surge_seven/config/app_colors.dart';
 import 'package:surge_seven/config/constants.dart';
-
 
 class MySecondaryButton extends StatelessWidget {
   final String label;
@@ -19,19 +17,17 @@ class MySecondaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final screenUtil = ScreenUtil.instance;
-    //final themeNotifier = Provider.of<ThemeNotifier>(context);
-    
     return Row(mainAxisSize: MainAxisSize.max, children: [
       Expanded(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: paddingWidth ?? 0.0),
           child: Container(
+            // width: screenUtil.width - (2 * screenPadding),
             decoration: BoxDecoration(
-              //color: setCardColor(context),
-              color: AppColors.primaryColorLight,
+              color: AppColors.textColorLight,
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
-                setSecBtnShadow(context),
+                setBtnShadow(context),
               ],
             ),
             child: MaterialButton(
@@ -41,7 +37,7 @@ class MySecondaryButton extends StatelessWidget {
               child: Text(
                 label,
                 style: TextStyle(
-                  //color: themeNotifier.isDarkMode ? AppColors.primaryColorLighter : AppColors.primaryColorDark,
+                  color: AppColors.primaryColorDark,
                   fontSize: buttonTextFont,
                 ),
               ),
